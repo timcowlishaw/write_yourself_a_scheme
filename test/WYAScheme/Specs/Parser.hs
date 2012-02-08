@@ -59,5 +59,5 @@ parserSpecs = describe "The parser" [
         (Right (Number 12345)) == readExpr "#d12345"
     ),
     it "parses hexadecimal representations of integers" (
-        (Right (Number 12345)) == readExpr "#h3039"
+        (Right (Number 12345)) == readExpr "#x3039"
     )]
