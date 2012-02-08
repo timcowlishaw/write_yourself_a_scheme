@@ -32,7 +32,7 @@ parserSpecs = describe "The parser" [
       (Right (Atom "hello")) == readExpr "hello"
     ),
     it "parses atoms beginning with a symbol" (
-      (Right (Atom ".hello")) == readExpr ".hello"
+      (Right (Atom "_hello")) == readExpr "_hello"
     ),
     it "parses atoms containing symbols" (
       (Right (Atom "hello?world")) == readExpr "hello?world"
