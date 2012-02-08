@@ -20,7 +20,7 @@ symbol = oneOf "!#$%&|*+-/:<=>?@^_~"
 parseString :: Parser LispVal
 parseString = do
   char '"'
-  x <- many $ noneOf "\""
+  x <- many $ noneOf "\"\\" <|> (char '\\' >> char '"')
   char '"'
   return $ String x
   
