@@ -22,8 +22,11 @@ parserSpecs = describe "The parser" [
     it "parses Strings containing an escaped newline" (
       (Right (String "Words\nseparated\nby\nnewlines")) == (readExpr "Words\\\nseparated\\\nby\\\nnewlines")
     ),
-    it "parses Strings cntaining an escaped carriage return" (
+    it "parses Strings containing an escaped carriage return" (
       (Right (String "Words\rseparated\rby\rcarriage\rreturns")) == (readExpr "Words\\\rseparated\\\rby\\\rcarriage\\\rreturns")
+    ),
+    it "parses Strings containing an escaped backslash" (
+      (Right (String "Words\\separated\\by\\backslashes")) == (readExpr "Words\\\\separated\\\\by\\\\backslashes")
     ),
     it "parses atoms beginning with a letter" (
       (Right (Atom "hello")) == (readExpr "hello")
