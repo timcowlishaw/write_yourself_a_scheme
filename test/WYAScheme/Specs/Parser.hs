@@ -13,6 +13,9 @@ parserSpecs = describe "The parser" [
     it "parses Strings delimited by double quotes" (
       (Right (String "Hello there")) == (readExpr "\"Hello there\"")
     ),
+    it "parses Strings containing an escaped double quote" (
+      (Right (String "Hello, so-called \"Haskell Programmer\"")) == (readExpr "\"Hello, so-called \\\"Haskell Programmer\\\"\"")
+    ),
     it "parses atoms beginning with a letter" (
       (Right (Atom "hello")) == (readExpr "hello")
     ),
